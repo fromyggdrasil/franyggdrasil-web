@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+rewrites: async () => {
+      return {
+              fallback: [
+                {
+                            source: "/:path*",
+                            destination: "/",
+                },
+                      ],
+      };
+},
 };
 
 export default nextConfig;
