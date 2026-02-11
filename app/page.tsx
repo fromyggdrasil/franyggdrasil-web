@@ -9,9 +9,10 @@ export default function Home() {
     e.preventDefault();
     setStatus('Skickar...');
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbxKPuFmgzYqAcrTd0mCITOMuMG2zc6ydQPBvWvjxAwsmKPqPP08B2GF2nyxlFUVZvuD/exec', {
+      await fetch('http://76.13.77.156:5678/webhook/b09e2910-69c4-4ce8-817f-46d18c37a4a6', {
         method: 'POST',
-        body: new URLSearchParams({ email }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
       });
       setStatus('Tack!');
       setEmail('');
