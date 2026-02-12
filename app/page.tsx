@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -33,6 +34,7 @@ export default function Home() {
           </div>
           <p className="text-base sm:text-lg text-emerald-200">En nordisk fantasysaga där myter vaknar till liv</p>
           <p className="text-sm sm:text-base text-amber-500">Eskil Larsson & CG Martini</p>
+          <Link href="/wiki" className="inline-block px-6 py-3 bg-emerald-800 hover:bg-emerald-700 rounded-lg text-emerald-100 transition-colors">Utforska Wiki</Link>
           <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-3">
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Din email" required className="flex-1 px-6 py-3 bg-slate-900 border border-amber-600 rounded-lg text-base" />
