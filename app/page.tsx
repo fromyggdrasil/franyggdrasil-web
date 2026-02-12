@@ -9,7 +9,7 @@ export default function Home() {
     e.preventDefault();
     setStatus('Skickar...');
     try {
-      await fetch('https://n8n.fromyggdrasil.com/webhook/b09e2910-69c4-4ce8-817f-46d18c37a4a6', {
+      await fetch('https://n8n.fromyggdrasil.com/webhook/8b3b3fee-a056-43bd-b051-57a4e09f1ff6', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
