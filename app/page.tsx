@@ -9,9 +9,10 @@ export default function Home() {
     e.preventDefault();
     setStatus('Skickar...');
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbxKPuFmgzYqAcrTd0mCITOMuMG2zc6ydQPBvWvjxAwsmKPqPP08B2GF2nyxlFUVZvuD/exec', {
+      await fetch('https://n8n.fromyggdrasil.com/webhook/b09e2910-69c4-4ce8-817f-46d18c37a4a6', {
         method: 'POST',
-        body: new URLSearchParams({ email }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
       });
       setStatus('Tack!');
       setEmail('');
@@ -26,16 +27,16 @@ export default function Home() {
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="max-w-4xl text-center space-y-10">
           <div className="space-y-4">
-            <h1 className="text-7xl md:text-9xl font-bold tracking-widest bg-gradient-to-b from-amber-300 via-amber-500 to-amber-700 bg-clip-text text-transparent">SKRIKET</h1>
-            <p className="text-3xl md:text-5xl text-amber-400">från</p>
-            <h2 className="text-7xl md:text-9xl font-bold tracking-widest bg-gradient-to-b from-amber-300 via-amber-500 to-amber-700 bg-clip-text text-transparent">YGGDRASIL</h2>
+            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-widest bg-gradient-to-b from-amber-300 via-amber-500 to-amber-700 bg-clip-text text-transparent">SKRIKET</h1>
+            <p className="text-2xl sm:text-3xl md:text-5xl text-amber-400">från</p>
+            <h2 className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-widest bg-gradient-to-b from-amber-300 via-amber-500 to-amber-700 bg-clip-text text-transparent">YGGDRASIL</h2>
           </div>
-          <p className="text-lg text-emerald-200">En nordisk fantasysaga där myter vaknar till liv</p>
-          <p className="text-amber-500">Eskil Larsson & CG Martini</p>
+          <p className="text-base sm:text-lg text-emerald-200">En nordisk fantasysaga där myter vaknar till liv</p>
+          <p className="text-sm sm:text-base text-amber-500">Eskil Larsson & CG Martini</p>
           <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
-            <div className="flex gap-3">
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Din email" required className="flex-1 px-6 py-3 bg-slate-900 border border-amber-600 rounded-lg" />
-              <button type="submit" className="px-8 py-3 bg-amber-700 hover:bg-amber-600 rounded-lg">Meddela mig</button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Din email" required className="flex-1 px-6 py-3 bg-slate-900 border border-amber-600 rounded-lg text-base" />
+              <button type="submit" className="px-8 py-3 bg-amber-700 hover:bg-amber-600 rounded-lg text-base whitespace-nowrap">Meddela mig</button>
             </div>
             {status && <p className="text-emerald-400">{status}</p>}
           </form>
